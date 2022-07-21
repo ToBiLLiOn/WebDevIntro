@@ -1,0 +1,25 @@
+body {
+    background: lightslategrey;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+h1 {
+    color: gold;
+    font: 32px Garamond, Helvetica, serif;
+}
+
+table {
+    width: 200%;
+}
+
+thead {
+    text-align: left;
+}
+
+label {
+    display: block;
+}
+
+#submit-btn {
+    display: block;
+}

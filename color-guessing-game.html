@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tobi's Color Guesser</title>
+    <style>
+      body {
+          background-color: chocolate;
+      }
+
+  
+      button[type="button"] {
+            background: darkgray;
+            border-radius: 10px;
+            color: white;
+            font-size: 20px;
+            padding: 12px;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- HTML -->
+    <h1>Color Guessing Game</h1>
+    <button type="button" onclick="runGame()">Start Game</button>
+
+    <!-- JS  -->
+    <script>
+      let COLOR_ARRAY= [
+        "blue" ,// 0
+        "cyan" , // 1
+        "gold" , // 2
+        "gray" , // 3
+        "green" , // 4
+        "magenta" , // 5
+        "orange" ,// 6
+        "red" , // 7
+        "white" ,// 8
+        "yellow"// 9
+      ];
+       let COLOR_ARRAY = COLOR_ARRAY.join(", ");
+     
+
+      // psuedo coding
+
+      function runGame() {
+        let guess = "";
+        let correct = false;
+        let numTries = 0;
+
+        const randomIndex = Math.floor(Math.random() * COLOR_ARRAY.length);
+        const color = COLOR_ARRAY[randomIndex];
+
+        // prompt
+        do {
+          guess = prompt(
+            "Guess a color\n\n" +
+              COLOR_ARRAY +
+              "\n\nWhich color am I thinking of?"
+          );
+
+          if (guess === null) {
+            alert("Game ended");
+            return;
+          }
+
+          numTries += 1;
+          correct = checkGuess(guess, color); // change correct to true
+        } while (!correct); // when this becomes false, it will exit and continue the script
+        document.body.style.background = guess;
+
+        alert('Congratulations! The color was ' + color + '.\n\nIt took you ' + numTries + ' guesses to finish the game!\n\nHit OK to see the color in the background.');
+      }
+
+      function checkGuess(guess, color) {
+          let correct = false
+        console.log(guess);
+        console.log(color);
+
+        // see if the guess is in the the array
+        // array.includes(variable) --> boolean true or false
+        if (COLOR_ARRAY.includes(guess)) {
+          // array.indexOf(variable) --> integer
+          console.log(COLOR_ARRAY.indexOf('blue'))
+          if (COLOR_ARRAY.indexOf(guess) < COLOR_ARRAY.indexOf(color)) {
+            alert("Your guess is lower alphabetically than my color.");
+          } else if (COLOR_ARRAY.indexOf(guess) > COLOR_ARRAY.indexOf(color)) {
+            alert("Your guess is higher alphabetically than my color.");
+          } else { // CORRECT GUESS
+            return true;
+          }
+        } else {
+          alert("Not a recognized color.");
+        }
+      }
+    </script>
+  </body>
+</html>

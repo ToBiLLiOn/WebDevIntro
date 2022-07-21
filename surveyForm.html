@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey Form</title>
+</head>
+<body>
+    <h1>Survey</h1>
+    <form action="https://us-central1-nucamp-production.cloudfunctions.net/post/formdata" method="post">
+        <fieldset> 
+            <legend> <strong>Your Information</strong> </legend>
+            <div>
+                <label for="firstName">First Name:</label> 
+                <input type="text" id="firstName" name="firstName" placeholder="Your First Name" />
+            </div>
+            <div>
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Your Last Name" />
+            </div>
+            <div>
+                <label for="yourEmail">Email:</label>
+                <input type="text" id="yourEmail" name="yourEmail" placeholder="Your Email Address" />
+            </div>
+            <div>
+                <label for="travel">Preferred method of travel:</label>
+                <select id="travel" required>
+                    <option disabled selected value="">Choose ... </option>
+                    <option value="bike">Bike</option>
+                    <option value="car">Car</option>
+                    <option value="train">Train</option>
+                </select>
+            </div>
+    
+        </fieldset>
+
+        <fieldset>
+            <legend> <strong>Survey Questions</strong> </legend>
+            <div>
+                Favorite Sport:
+                 <input type="radio" name="sport" id="baseBall" value="baseBall"/> 
+                 <label for="baseBall">Baseball</label>
+                 <input type="radio" name="sport" id="rugby" value="rugby"/>
+                 <label for="rugby">Rugby</label>
+                 <input type="radio" name="sport" id="snowBoarding" value="snowboarding"/>
+                 <label for="snowBoarding">Snowboarding</label>
+            </div>
+            <div>
+                Your Pets:
+                <input type="radio" name="pet" id="cat" value="cat"/>
+                <label for="cat">Cat</label>
+                <input type="radio" name="pet" id="dog" value="dog"/>
+                <label for="dog">Dog</label>
+                <input type="radio" name="pet" id="iguana" value="iguana"/>
+                <label for="iguana">Iguana</label>
+            </div>
+        </fieldset>
+        <input type="submit" name="submit"/>
+    </form>
+    
+</body>
+</html>
